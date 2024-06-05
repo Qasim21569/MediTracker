@@ -2,7 +2,6 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/components/networkerror/networkerror_widget.dart';
 import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
@@ -157,84 +156,75 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                         ),
                       ),
                     ),
-                    Container(
-                      width: 117.0,
-                      height: 100.0,
-                      decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).primaryBackground,
-                      ),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          const Icon(
-                            Icons.medical_services_rounded,
-                            color: Color(0xFF6060D2),
-                            size: 24.0,
+                    Padding(
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 15.0, 0.0),
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          context.pushNamed('profile');
+                        },
+                        child: Container(
+                          width: 280.0,
+                          height: 60.0,
+                          constraints: const BoxConstraints(
+                            minWidth: 10.0,
                           ),
-                          AuthUserStreamWidget(
-                            builder: (context) => Container(
-                              width: 40.0,
-                              height: 40.0,
-                              clipBehavior: Clip.antiAlias,
-                              decoration: const BoxDecoration(
-                                shape: BoxShape.circle,
-                              ),
-                              child: Image.network(
-                                currentUserPhoto,
-                                fit: BoxFit.cover,
-                                errorBuilder: (context, error, stackTrace) =>
-                                    Image.asset(
-                                  'assets/images/error_image.webp',
+                          decoration: BoxDecoration(
+                            color: FlutterFlowTheme.of(context).primary,
+                            boxShadow: [
+                              BoxShadow(
+                                blurRadius: 4.0,
+                                color: FlutterFlowTheme.of(context).primaryText,
+                                offset: const Offset(
+                                  0.0,
+                                  2.0,
+                                ),
+                              )
+                            ],
+                            borderRadius: const BorderRadius.only(
+                              bottomLeft: Radius.circular(10.0),
+                              bottomRight: Radius.circular(10.0),
+                              topLeft: Radius.circular(10.0),
+                              topRight: Radius.circular(10.0),
+                            ),
+                          ),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Container(
+                                width: 65.0,
+                                height: 65.0,
+                                clipBehavior: Clip.antiAlias,
+                                decoration: const BoxDecoration(
+                                  shape: BoxShape.circle,
+                                ),
+                                child: Image.network(
+                                  'https://picsum.photos/seed/5/600',
                                   fit: BoxFit.cover,
                                 ),
                               ),
-                            ),
-                          ),
-                          Align(
-                            alignment: const AlignmentDirectional(0.0, 1.0),
-                            child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 10.0),
-                              child: Container(
-                                width: 20.0,
-                                height: 20.0,
-                                decoration: const BoxDecoration(),
-                                child: Align(
-                                  alignment: const AlignmentDirectional(0.0, 0.0),
-                                  child: FFButtonWidget(
-                                    onPressed: () {
-                                      print('Button pressed ...');
-                                    },
-                                    text: 'Button',
-                                    options: FFButtonOptions(
-                                      height: 40.0,
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          24.0, 0.0, 24.0, 0.0),
-                                      iconPadding:
-                                          const EdgeInsetsDirectional.fromSTEB(
-                                              0.0, 0.0, 0.0, 0.0),
-                                      color:
-                                          FlutterFlowTheme.of(context).primary,
-                                      textStyle: FlutterFlowTheme.of(context)
-                                          .titleSmall
-                                          .override(
-                                            fontFamily: 'Plus Jakarta Sans',
-                                            color: Colors.white,
-                                            letterSpacing: 0.0,
-                                          ),
-                                      elevation: 3.0,
-                                      borderSide: const BorderSide(
-                                        color: Colors.transparent,
-                                        width: 1.0,
+                              Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    15.0, 0.0, 5.0, 0.0),
+                                child: Text(
+                                  'Go To Profile Page',
+                                  style: FlutterFlowTheme.of(context)
+                                      .headlineSmall
+                                      .override(
+                                        fontFamily: 'Outfit',
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryBackground,
+                                        letterSpacing: 0.0,
                                       ),
-                                      borderRadius: BorderRadius.circular(8.0),
-                                    ),
-                                  ),
                                 ),
                               ),
-                            ),
+                            ],
                           ),
-                        ].divide(const SizedBox(width: 10.0)),
+                        ),
                       ),
                     ),
                   ],
