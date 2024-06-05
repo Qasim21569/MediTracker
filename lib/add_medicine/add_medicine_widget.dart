@@ -1,3 +1,4 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_calendar.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
@@ -193,7 +194,7 @@ class _AddMedicineWidgetState extends State<AddMedicineWidget> {
                         ),
                         Row(
                           mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Container(
                               width: 254.0,
@@ -220,64 +221,6 @@ class _AddMedicineWidgetState extends State<AddMedicineWidget> {
                                         fontFamily: 'Plus Jakarta Sans',
                                         letterSpacing: 0.0,
                                       ),
-                                ),
-                              ),
-                            ),
-                            Container(
-                              width: 36.0,
-                              height: 36.0,
-                              decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                                borderRadius: BorderRadius.circular(8.0),
-                                border: Border.all(
-                                  color: const Color(0xFFB5BED6),
-                                  width: 1.2,
-                                ),
-                              ),
-                              child: InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
-                                  _model.singleDose = _model.singleDose! + -1;
-                                  setState(() {});
-                                },
-                                child: Icon(
-                                  Icons.minimize_outlined,
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryText,
-                                  size: 24.0,
-                                ),
-                              ),
-                            ),
-                            Container(
-                              width: 36.0,
-                              height: 36.0,
-                              decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                                borderRadius: BorderRadius.circular(8.0),
-                                border: Border.all(
-                                  color: const Color(0xFFB5BED6),
-                                  width: 1.2,
-                                ),
-                              ),
-                              child: InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
-                                  _model.singleDose = _model.singleDose! + 1;
-                                  setState(() {});
-                                },
-                                child: Icon(
-                                  Icons.add,
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryText,
-                                  size: 24.0,
                                 ),
                               ),
                             ),
@@ -851,6 +794,7 @@ class _AddMedicineWidgetState extends State<AddMedicineWidget> {
                                     breakfastTime: _model.breakfastoptionValue,
                                     lunchTime: _model.lunchOptionValue,
                                     dinnerTime: _model.dinnerOptionValue,
+                                    userID: currentUserUid,
                                   ));
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(
@@ -869,7 +813,7 @@ class _AddMedicineWidgetState extends State<AddMedicineWidget> {
                               await Future.delayed(
                                   const Duration(milliseconds: 2000));
 
-                              context.pushNamed('null');
+                              context.pushNamed('HomePage');
                             },
                             text: 'Add',
                             options: FFButtonOptions(

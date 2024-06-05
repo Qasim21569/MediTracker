@@ -61,6 +61,11 @@ class MedicineRecord extends FirestoreRecord {
   String get dinnerTime => _dinnerTime ?? '';
   bool hasDinnerTime() => _dinnerTime != null;
 
+  // "userID" field.
+  String? _userID;
+  String get userID => _userID ?? '';
+  bool hasUserID() => _userID != null;
+
   void _initializeFields() {
     _quantity = castToType<int>(snapshotData['quantity']);
     _totalCount = castToType<int>(snapshotData['totalCount']);
@@ -71,6 +76,7 @@ class MedicineRecord extends FirestoreRecord {
     _breakfastTime = snapshotData['breakfastTime'] as String?;
     _lunchTime = snapshotData['lunchTime'] as String?;
     _dinnerTime = snapshotData['dinnerTime'] as String?;
+    _userID = snapshotData['userID'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -117,6 +123,7 @@ Map<String, dynamic> createMedicineRecordData({
   String? breakfastTime,
   String? lunchTime,
   String? dinnerTime,
+  String? userID,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -129,6 +136,7 @@ Map<String, dynamic> createMedicineRecordData({
       'breakfastTime': breakfastTime,
       'lunchTime': lunchTime,
       'dinnerTime': dinnerTime,
+      'userID': userID,
     }.withoutNulls,
   );
 
@@ -148,7 +156,8 @@ class MedicineRecordDocumentEquality implements Equality<MedicineRecord> {
         e1?.frequency == e2?.frequency &&
         e1?.breakfastTime == e2?.breakfastTime &&
         e1?.lunchTime == e2?.lunchTime &&
-        e1?.dinnerTime == e2?.dinnerTime;
+        e1?.dinnerTime == e2?.dinnerTime &&
+        e1?.userID == e2?.userID;
   }
 
   @override
@@ -161,7 +170,8 @@ class MedicineRecordDocumentEquality implements Equality<MedicineRecord> {
         e?.frequency,
         e?.breakfastTime,
         e?.lunchTime,
-        e?.dinnerTime
+        e?.dinnerTime,
+        e?.userID
       ]);
 
   @override

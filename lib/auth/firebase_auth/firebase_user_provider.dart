@@ -5,8 +5,8 @@ import '../base_auth_user_provider.dart';
 
 export '../base_auth_user_provider.dart';
 
-class MedicineFirebaseUser extends BaseAuthUser {
-  MedicineFirebaseUser(this.user);
+class MediTrackerFirebaseUser extends BaseAuthUser {
+  MediTrackerFirebaseUser(this.user);
   User? user;
   @override
   bool get loggedIn => user != null;
@@ -55,17 +55,17 @@ class MedicineFirebaseUser extends BaseAuthUser {
   static BaseAuthUser fromUserCredential(UserCredential userCredential) =>
       fromFirebaseUser(userCredential.user);
   static BaseAuthUser fromFirebaseUser(User? user) =>
-      MedicineFirebaseUser(user);
+      MediTrackerFirebaseUser(user);
 }
 
-Stream<BaseAuthUser> medicineFirebaseUserStream() => FirebaseAuth.instance
+Stream<BaseAuthUser> mediTrackerFirebaseUserStream() => FirebaseAuth.instance
         .authStateChanges()
         .debounce((user) => user == null && !loggedIn
             ? TimerStream(true, const Duration(seconds: 1))
             : Stream.value(user))
         .map<BaseAuthUser>(
       (user) {
-        currentUser = MedicineFirebaseUser(user);
+        currentUser = MediTrackerFirebaseUser(user);
         return currentUser!;
       },
     );

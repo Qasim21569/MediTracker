@@ -6,7 +6,6 @@ import 'package:provider/provider.dart';
 import '/auth/base_auth_user_provider.dart';
 
 import '/index.dart';
-import '/main.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
@@ -73,13 +72,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? const NavBarPage() : const Auth2Widget(),
+          appStateNotifier.loggedIn ? const HomePageWidget() : const Auth2Widget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? const NavBarPage() : const Auth2Widget(),
+              appStateNotifier.loggedIn ? const HomePageWidget() : const Auth2Widget(),
           routes: [
             FFRoute(
               name: 'addMedicine',
@@ -92,23 +91,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => const Auth2Widget(),
             ),
             FFRoute(
-              name: 'reportPage',
-              path: 'reportPage',
-              builder: (context, params) => params.isEmpty
-                  ? const NavBarPage(initialPage: 'reportPage')
-                  : const ReportPageWidget(),
-            ),
-            FFRoute(
-              name: 'sanplePage',
-              path: 'sanplePage',
-              builder: (context, params) => const SanplePageWidget(),
-            ),
-            FFRoute(
-              name: 'HomePageCopy',
-              path: 'homePageCopy',
-              builder: (context, params) => params.isEmpty
-                  ? const NavBarPage(initialPage: 'HomePageCopy')
-                  : const HomePageCopyWidget(),
+              name: 'HomePage',
+              path: 'homePage',
+              builder: (context, params) => const HomePageWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),

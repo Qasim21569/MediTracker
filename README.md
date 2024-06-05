@@ -1,4 +1,4 @@
-# Medicine 
+# MediTracker
 
 A new Flutter project.
 
