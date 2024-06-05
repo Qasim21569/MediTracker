@@ -99,8 +99,8 @@ class _NetworkerrorWidgetState extends State<NetworkerrorWidget> {
                     ),
               ),
               FFButtonWidget(
-                onPressed: () {
-                  print('Button pressed ...');
+                onPressed: () async {
+                  context.safePop();
                 },
                 text: 'Try again',
                 options: FFButtonOptions(
@@ -123,17 +123,6 @@ class _NetworkerrorWidgetState extends State<NetworkerrorWidget> {
                 ),
               ),
             ].divide(const SizedBox(height: 5.0)),
-          ),
-          Align(
-            alignment: const AlignmentDirectional(-1.0, -1.0),
-            child: Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 0.0, 0.0),
-              child: Icon(
-                Icons.close,
-                color: FlutterFlowTheme.of(context).primaryText,
-                size: 45.0,
-              ),
-            ),
           ),
         ],
       ),

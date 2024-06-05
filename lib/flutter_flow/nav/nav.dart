@@ -94,6 +94,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'HomePage',
               path: 'homePage',
               builder: (context, params) => const HomePageWidget(),
+            ),
+            FFRoute(
+              name: 'profile',
+              path: 'profile',
+              builder: (context, params) => const ProfileWidget(),
+            ),
+            FFRoute(
+              name: 'editprofil',
+              path: 'editprofil',
+              builder: (context, params) => const EditprofilWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),

@@ -164,7 +164,7 @@ class _Auth2WidgetState extends State<Auth2Widget>
                 ),
               ),
               Align(
-                alignment: const AlignmentDirectional(0.0, -1.0),
+                alignment: const AlignmentDirectional(0.0, 0.0),
                 child: Padding(
                   padding: const EdgeInsetsDirectional.fromSTEB(0.0, 170.0, 0.0, 0.0),
                   child: SingleChildScrollView(
@@ -840,7 +840,7 @@ class _Auth2WidgetState extends State<Auth2Widget>
                                                                       0.0,
                                                                       0.0,
                                                                       0.0,
-                                                                      16.0),
+                                                                      12.0),
                                                           child: Wrap(
                                                             spacing: 16.0,
                                                             runSpacing: 0.0,
@@ -868,7 +868,7 @@ class _Auth2WidgetState extends State<Auth2Widget>
                                                                             0.0,
                                                                             0.0,
                                                                             0.0,
-                                                                            16.0),
+                                                                            10.0),
                                                                 child:
                                                                     FFButtonWidget(
                                                                   onPressed:
@@ -883,6 +883,11 @@ class _Auth2WidgetState extends State<Auth2Widget>
                                                                         null) {
                                                                       return;
                                                                     }
+
+                                                                    context.goNamedAuth(
+                                                                        'HomePage',
+                                                                        context
+                                                                            .mounted);
                                                                   },
                                                                   text:
                                                                       'Continue with Google',
@@ -942,81 +947,6 @@ class _Auth2WidgetState extends State<Auth2Widget>
                                                                   ),
                                                                 ),
                                                               ),
-                                                              isAndroid
-                                                                  ? Container()
-                                                                  : Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          16.0),
-                                                                      child:
-                                                                          FFButtonWidget(
-                                                                        onPressed:
-                                                                            () async {
-                                                                          GoRouter.of(context)
-                                                                              .prepareAuthEvent();
-                                                                          final user =
-                                                                              await authManager.signInWithApple(context);
-                                                                          if (user ==
-                                                                              null) {
-                                                                            return;
-                                                                          }
-
-                                                                          context.goNamedAuth(
-                                                                              'HomePage',
-                                                                              context.mounted);
-                                                                        },
-                                                                        text:
-                                                                            'Continue with Apple',
-                                                                        icon:
-                                                                            const FaIcon(
-                                                                          FontAwesomeIcons
-                                                                              .apple,
-                                                                          size:
-                                                                              20.0,
-                                                                        ),
-                                                                        options:
-                                                                            FFButtonOptions(
-                                                                          width:
-                                                                              230.0,
-                                                                          height:
-                                                                              44.0,
-                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                              0.0,
-                                                                              0.0,
-                                                                              0.0,
-                                                                              0.0),
-                                                                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                                                                              0.0,
-                                                                              0.0,
-                                                                              0.0,
-                                                                              0.0),
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).secondaryBackground,
-                                                                          textStyle: FlutterFlowTheme.of(context)
-                                                                              .bodyMedium
-                                                                              .override(
-                                                                                fontFamily: 'Plus Jakarta Sans',
-                                                                                letterSpacing: 0.0,
-                                                                                fontWeight: FontWeight.bold,
-                                                                              ),
-                                                                          elevation:
-                                                                              0.0,
-                                                                          borderSide:
-                                                                              BorderSide(
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).alternate,
-                                                                            width:
-                                                                                2.0,
-                                                                          ),
-                                                                          borderRadius:
-                                                                              BorderRadius.circular(40.0),
-                                                                          hoverColor:
-                                                                              FlutterFlowTheme.of(context).primaryBackground,
-                                                                        ),
-                                                                      ),
-                                                                    ),
                                                             ],
                                                           ),
                                                         ),
