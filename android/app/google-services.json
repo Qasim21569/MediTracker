@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "662687225977",
+    "project_id": "meditracker-ae730",
+    "storage_bucket": "meditracker-ae730.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:662687225977:android:3d816dabfbacae3afa5ca8",
+        "android_client_info": {
+          "package_name": "com.meditracker.medicine"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9Wule1W8X0ohw47CKFzG2--B_CFAB_fo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
